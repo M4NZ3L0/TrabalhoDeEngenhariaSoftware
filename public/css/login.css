@@ -1,0 +1,78 @@
+
+body
+{
+    background-color:#d2dae7;
+}
+
+.LoginWrapper
+{
+    width: 100%;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formLogin
+{
+    width:450px;
+    height:700px;
+    background-color: #edf2f4;
+    box-shadow: 10px 10px 20px #8d99ae;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon
+{
+    width:125px;
+}
+
+label
+{
+    color:#d90429;
+    font-weight:bold;
+    font-size: 1.75rem;
+    margin:5px 0;
+}
+
+#nome,#senha
+{
+    width:400px;
+    height:60px;
+    border-radius: 30px;
+    border:none;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.h1Login
+{
+    font-size: 3em;
+    font-weight: 900;
+    color:#2b2d42;
+}
+
+.alig{
+display:flex;
+flex-direction: column;
+align-items:flex-start;
+justify-content: center;
+margin: 20px 0;
+}
+
+.enviar
+{
+    width:200px;
+    height:80px;
+    margin-top: 40px;
+    font-size:1.5em;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    background:#d90429;
+    color:#edf2f4;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="css/manage.css">
+    <title>Gerenciar Cursos</title>
+</head>
+
+<body>
+  <div>
+            <button id="Adicionar">Adicionar</button>
+            <button id="Modificar">Modificar</button>
+            <button id="Deletar">Deletarar</button>
+  </div>
+      <%- include("./partials/header.ejs") %>
+    <main>
+      <%- ExibirCurso %> 
+        <%- include("./partials/CadastrarCruso.ejs")  %> 
+    </main>
+      <%- include("./partials/footer.ejs") %>
+      <script src="js/GerenciarCursos.js"></script>
+</body>
+
+</html>

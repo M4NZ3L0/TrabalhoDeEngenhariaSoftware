@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="css/login.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <main>
+
+     <div class="LoginWrapper">
+     <form class="formLogin" action="/login" method="post">
+        <img class="icon" src="assets/musicicons.png" alt="">
+        <h1 class="h1Login">Login</h1>
+        <div class="alig">
+        <label for="email">Email:</label>
+         <input type="text" id="email" name="email">
+        </div>
+        <div class="alig">
+         <label for="senha">Senha:</label>
+         <input type="password" id="senha" name="senha">
+        </div>
+         <button type="submit" class="enviar">Enviar</button>
+     </form>
+     </div>
+
+    </main>
+
+</body>
+
+</html>

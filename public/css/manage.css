@@ -1,0 +1,68 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cadastrar-instrumentos
+{
+    width:700px;
+    height: 400px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+.cadastrar-instrumentos label{
+    font-size: 1.25em;
+}
+.cadastrar-instrumentos input {
+    padding: 10px 40px;
+}
+
+.cadastrar-pessoa
+{
+    width:700px;
+    height:fit-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cadastrar-pessoa label {
+    font-size: 1.25em;
+}
+
+.cadastrar-pessoa input {
+    padding: 10px 40px;
+}
+
+.CreateBTNS
+{
+    margin: 100px 0 0 0;
+}
+
+.cadastrar-curso
+{
+    width: 700px;
+    height: 400px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cadastrar-curso label {
+    font-size: 1.25em;
+}
+
+
+.cadastrar-curso input {
+    padding: 10px 40px;
+}
+
+.hidden{
+    display: none;
+}

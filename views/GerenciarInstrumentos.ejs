@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head.ejs") %>
+    <link rel="stylesheet" href="css/manage.css">
+    <title>Gerenciar Instrumentos</title>
+</head>
+
+<body>
+      <%- include("./partials/header.ejs") %>
+    <main>
+      <div>
+            <button id="Adicionar">Adicionar</button>
+            <button id="Modificar">Modificar</button>
+            <button id="Deletar">Deletarar</button>
+        </div>
+        
+      <%- ExibirInstrumento %> 
+        <%- include("./partials/Cadastrarinstrumento.ejs")  %> 
+    </main>
+      <%- include("./partials/footer.ejs") %>
+      <script src="js/GerenciarInstrumentos.js"></script>
+</body>
+
+</html>
