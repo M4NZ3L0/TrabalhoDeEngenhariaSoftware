@@ -3,7 +3,6 @@
 
 <head>
     <%- include("./partials/head.ejs") %>
-    <link rel="stylesheet" href="css/manage.css">
     <title>Gerenciar Alunos</title>
 </head>
 
@@ -12,41 +11,43 @@
 
     <main>
 
-        <div class="CreateBTNS">
-            <button id="Adicionar">Adicionar</button>
-            <button id="Modificar">Modificar</button>
-            <button id="Deletar">Deletarar</button>
+        <div >
+            <button id="Adicionar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                </svg></button>
         </div>
 
-        <div class="manageContainer">
-            <table>
+        <div class="w-full h-screen flex justify-center">
+            <table class="w-11/12 mt-20 table-auto bg-blue-50 rounded-xl overflow-hidden shadow-lg">
                 <thead>
-                    <tr>
+                    <tr class="bg-blue-500 text-center text-white h-12">
                         <th id="id">Id</th>
+                        <th id="nome">Nome</th>
                         <th id="email">Email</th>
                         <th id="DataNascimento">Data De Nascimento</th>
                         <th id="endereço">endereço</th>
                         <th id="telefone">telefone</th>
                         <th id="CPF">CPF</th>
                         <th id="RG">RG</th>
-                        <th id="vencimentoPagamento">Vencimento Pagamento</th>
+                        <th id="vencimentoPagamento">Pagamento</th>
                         <th id="curso">Curso</th>
                         <th id="turmo">Turma</th>
-                        <th id="turmo">Operações</th>
+                        <th id="ops">Operações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%- ExibirAluno %> 
-                </tfoot>
+                    <%- ExibirAluno %>
+                </tbody>
             </table>
         </div>
     </main>
     <div>
-        <button id="Close"> Fechar</button>
-         <%- include("./partials/CadastrarPessoa.ejs")  %> 
+        <%- include("./partials/CadastrarPessoa.ejs")  %>
     </div>
-        <%- include("./partials/footer.ejs") %>
-    <script src="js/GerenciarAlunos.js"></script>
+    <%- include("./partials/footer.ejs") %>
+    <script type="module" src="js/GerenciarAlunos.js"></script>
 </body>
 
 </html>

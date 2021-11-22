@@ -8,7 +8,7 @@ const User = sequelize.define("users", {
         primaryKey: true
     },
     Nome: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(40),
         allowNull: false
     },
     Senha: {
@@ -16,7 +16,7 @@ const User = sequelize.define("users", {
         allowNull: false
     },
     Email: {
-        type: Sequelize.STRING(60),
+        type: Sequelize.STRING(40),
         allowNull: false
     },
     DataDeNascimento: {
@@ -24,19 +24,19 @@ const User = sequelize.define("users", {
         allowNull: false
     },
     Endereço: {
-        type: Sequelize.STRING(60),
+        type: Sequelize.STRING(40),
         allowNull: true
     },
     Telefone: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(11),
         allowNull: true
     },
     RG: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(9),
         allowNull: false
     },
     CPF: {
-        type: Sequelize.STRING(40),
+        type: Sequelize.STRING(11),
         allowNull: false
     },
     Professor: {
@@ -66,5 +66,6 @@ const User = sequelize.define("users", {
     }
 
 });
+
 
 export default User;

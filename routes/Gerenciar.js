@@ -12,6 +12,15 @@ router.route("/gerenciaralunos")
         })
     });
 
+/* router.route("/atualizarAluno/:id")
+    .get(async (req, res) => {
+        await RenderFunctions.FunçãoAlunos();
+        res.render("AtualizarAluno.ejs")
+    })
+    .post(async (req, res) =>
+    {
+    }) */
+
 router.route("/gerenciarinstrumentos")
     .get(async (req, res) => {
         await RenderFunctions.FunçãoInstrumentos();

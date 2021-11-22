@@ -26,7 +26,7 @@ router.route("/professores")
 
 router.route("/cursos")
     .get(async (req, res) => {
-        await CourseData[1]()
+        await CourseData[1]();
         res.render("Cursos.ejs", {
             ExibirCursos: CourseData[0]
         })

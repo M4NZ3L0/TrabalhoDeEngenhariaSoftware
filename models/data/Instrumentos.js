@@ -12,7 +12,7 @@ const Instrument = sequelize.define("instruments", {
         allowNull: false
     },
     Nome: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(40),
         allowNull: false
     },
     Código: {
@@ -24,11 +24,11 @@ const Instrument = sequelize.define("instruments", {
         allowNull: false
     },
     TamanhoCms: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(3),
         allowNull: false
     },
     PesoKgs: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(3),
         allowNull: true
     }
 });

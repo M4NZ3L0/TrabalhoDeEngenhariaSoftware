@@ -2,49 +2,68 @@ import CursosModel from "../../data/Cursos.js";
 
 export async function CreateCourse(req, res) {
 
-    const CursoExistente = await CursosModel.findOne({
-        where: {
-            Curso: req.body.curso
-        }
-    });
-   
-  console.log(CursoExistente.Horários);
-
-    if (CursoExistente.curso === req.body.curso && CursoExistente.Horários === req.body.horarios) {
-        res.status(400).send({
-            message: "Curso já cadastrado"
-        })
-    } 
-    else {
-
-        const curso = {
-            Curso: req.body.curso,
-            Professores: req.body.professores,
-            Horários: req.body.horarios,
-            AlunosMatriculados: req.body.alunosmatriculados,
-        };
-
-        return CursosModel.create(curso)
-            .then(data => {
-                res.send(data);
-            })
-            .catch(err => {
-                res.status(500).send({
-                    message: err.message 
-                });
-            });
+  const CursoExistente = await CursosModel.findOne({
+    where: {
+      Curso: req.body.curso
     }
+  });
+
+
+  if (!CursoExistente) {
+
+    const curso = {
+      Curso: req.body.curso,
+      Professores: req.body.professores,
+      DiasDeAula: req.body.diasdeaula,
+      Horários: req.body.horarios,
+      AlunosMatriculados: req.body.alunosmatriculados,
+    };
+
+    return CursosModel.create(curso)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: err.message
+        });
+      });
+  } else {
+    if (CursoExistente.curso === req.body.curso && CursoExistente.Horários === req.body.horarios) {
+      res.status(400).send({
+        message: "Curso já cadastrado"
+      })
+    } else {
+      const curso = {
+        Curso: req.body.curso,
+        Professores: req.body.professores,
+        DiasDeAula: req.body.diasdeaula,
+        Horários: req.body.horarios,
+        AlunosMatriculados: req.body.alunosmatriculados,
+      };
+
+      return CursosModel.create(curso)
+        .then(data => {
+          res.send(data);
+        })
+        .catch(err => {
+          res.status(500).send({
+            message: err.message
+          });
+        });
+    }
+  }
 
 }
 
-export const findAllCourses =  (req, res) => {
+export const findAllCourses = (req, res) => {
   CursosModel.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message 
+        message: err.message
       });
     });
 };
@@ -79,7 +98,7 @@ export const delAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message 
+        message: err.message
       });
     });
 };
@@ -94,7 +113,9 @@ export const update = (req, res) => {
     })
     .then(num => {
       if (num == 1) {
-        res.send({message:"Curso atualizado com sucesso"});
+        res.send({
+          message: "Curso atualizado com sucesso"
+        });
       } else {
         res.send({
           message: `Não foi possível atualizar o curso desejado`
@@ -108,7 +129,7 @@ export const update = (req, res) => {
     });
 };
 
-export const findOne =  (req, res) => {
+export const findOne = (req, res) => {
   const id = req.params.id;
 
   CursosModel.findByPk(id)

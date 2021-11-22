@@ -15,8 +15,12 @@ const Course = sequelize.define("courses", {
         type: Sequelize.STRING(40),
         allowNull: false
     },
+    DiasDeAula: {
+        type: Sequelize.STRING(20),
+        allowNull: false
+    },
     Horários: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING(4),
         allowNull: false
     },
     AlunosMatriculados: {

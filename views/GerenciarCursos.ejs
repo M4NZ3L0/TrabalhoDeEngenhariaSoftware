@@ -15,6 +15,28 @@
   </div>
       <%- include("./partials/header.ejs") %>
     <main>
+       <div class="manageContainer">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="id">Id</th>
+                        <th id="email">Email</th>
+                        <th id="DataNascimento">Data De Nascimento</th>
+                        <th id="endereço">endereço</th>
+                        <th id="telefone">telefone</th>
+                        <th id="CPF">CPF</th>
+                        <th id="RG">RG</th>
+                        <th id="vencimentoPagamento">Vencimento Pagamento</th>
+                        <th id="curso">Curso</th>
+                        <th id="turmo">Turma</th>
+                        <th id="turmo">Operações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- ExibirAluno %> 
+                </tbody>
+            </table>
+        </div>
       <%- ExibirCurso %> 
         <%- include("./partials/CadastrarCruso.ejs")  %> 
     </main>
