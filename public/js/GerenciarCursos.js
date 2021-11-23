@@ -1,19 +1,40 @@
-const form = document.querySelector("#CadastrarCurso")
+const form = document.querySelector("#CadastrarCurso");
 
 const AdicionarCurso = document.querySelector("#Adicionar");
 const Fechar = document.querySelector("#Fechar");
+const Deletar = document.querySelector("#DeletarCurso");
+const DeletarForm = document.querySelector("#DeletarForm");
+const sair = document.querySelector("#sair")
 
-Adicionar.addEventListener("click", () => {
-    if(form.classList.contains("hidden"))
-    {
-        form.classList.remove("hidden")
-    }
-},true);
+sair.addEventListener("click", () => {
+        if (!Deletar.classList.contains("hidden")) {
+            Deletar.classList.add("hidden");
+        }
+});
 
-Fechar.addEventListener("click", () => {
-    if(!form.classList.contains("hidden"))
-    {
-        form.classList.add("hidden")
-    }
-}, true);
+const DeleteBtn = document.querySelectorAll(".delete");    
 
+            Adicionar.addEventListener("click", () => {
+                if (form.classList.contains("hidden")) {
+                    form.classList.remove("hidden")
+                }
+            }, true);
+
+            Fechar.addEventListener("click", () => {
+                if (!form.classList.contains("hidden")) {
+                    form.classList.add("hidden")
+                }
+            }, true);
+
+DeleteBtn.forEach(btn => {
+    const id = btn.dataset.id;
+    btn.addEventListener("click", (e) => {
+
+        DeletarForm.action = "/deletarcursos/" + id;
+
+        if (Deletar.classList.contains("hidden")) {
+            Deletar.classList.remove("hidden");
+        }
+
+    })
+});

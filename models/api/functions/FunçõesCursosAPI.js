@@ -57,6 +57,7 @@ export async function CreateCourse(req, res) {
 }
 
 export const findAllCourses = (req, res) => {
+  
   CursosModel.findAll()
     .then(data => {
       res.send(data);
@@ -106,7 +107,15 @@ export const delAll = (req, res) => {
 export const update = (req, res) => {
   const id = req.params.id;
 
-  CursosModel.update(req.body, {
+  const CursoObj = {
+        Curso: req.body.curso,
+        Professores: req.body.professores,
+        DiasDeAula: req.body.diasdeaula,
+        Horários: req.body.horarios,
+        AlunosMatriculados: req.body.alunosmatriculados,
+  };
+  
+  CursosModel.update(CursoObj, {
       where: {
         id: id
       }

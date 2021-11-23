@@ -1,5 +1,5 @@
 import express from "express";
-import axios from "axios";
+import { CriarCurso,AtualizarCurso,DeletarCurso } from "../models/logic/GerenciarFunções.js";
 import RenderFunctions from "../models/logic/Gerenciar.js";
 
 const router = express.Router();
@@ -20,6 +20,9 @@ router.route("/gerenciarinstrumentos")
         })
     });
 
+
+//Cursos
+
 router.route("/gerenciarcursos")
     .get(async (req, res) => {
         await RenderFunctions.FunçãoCursos();
@@ -27,29 +30,22 @@ router.route("/gerenciarcursos")
             ExibirCurso: RenderFunctions.cursos
         })
     })
-    .post(async(req, res) => {
-        const obj = {
-            curso: req.body.curso,
-            professores: req.body.professores,
-            diasdeaula: req.body.diasdeaula,
-            horarios: req.body.horarios,
-            alunosmatriculados: req.body.alunosmatriculados,
-        };
+    .post(CriarCurso);
 
-        const objson = JSON.stringify(obj);
-
-        axios.post("http://localhost:5050//api/cursos", objson)
-            .then(() => res.redirect(req.get('referer')))
-            .catch(err => console.log(err));
-    });
-
-router.route("/atualizarcursos")
+router.route("/atualizarCurso/:id")
     .get(async (req, res) => {
-        await RenderFunctions.FunçãoCursos();
-        res.render("GerenciarCursos.ejs", {
-            ExibirCurso: RenderFunctions.cursos
-        })
-    });
+        res.render("AtualizarCurso.ejs");
+    })
+    .post(AtualizarCurso);
+
+router.route("/deletarcursos/:id")
+    .post(DeletarCurso);
+
+
+
+
+    
+//Profs
 
 router.route("/gerenciarprofessores")
     .get(async (req, res) => {
