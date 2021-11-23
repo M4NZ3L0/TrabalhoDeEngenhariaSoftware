@@ -3,18 +3,52 @@
 
 <head>
     <%- include("./partials/head.ejs") %>
-    <link rel="stylesheet" href="css/manage.css">
-    <title>Gerenciar Professores</title>
+    <title>Gerenciar Alunos</title>
 </head>
 
 <body>
-      <%- include("./partials/header.ejs") %>
+    <%- include("./partials/header.ejs") %>
+
     <main class="min-h-screen">
-      <%- ExibirProfessor %> 
+       <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">            
+            <button id="Adicionar" class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                </svg>
+            <h1 class="font-semibold text-2xl text-gray-900">Criar Curso:</h1>
+            </button>
+        </div>
+        
+       <div class="w-full h-full flex items-center justify-center">
+           <table class="w-11/12">
+                <thead class="bg-gray-900 border-collapse text-white h-8">
+                    <tr>
+                        <th id="id">Id</th>
+                        <th id="nome">Nome</th>
+                        <th id="email">Email</th>
+                        <th id="DataNascimento">Data De Nascimento</th>
+                        <th id="endereço">endereço</th>
+                        <th id="telefone">telefone</th>
+                        <th id="CPF">CPF</th>
+                        <th id="RG">RG</th>
+                        <th id="vencimentoPagamento">Pagamento</th>
+                        <th id="curso">Curso</th>
+                        <th id="turmo">Turma</th>
+                        <th id="operações">Operações</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <%- ExibirProfessor %> 
+                </tbody>
+            </table>
+        </div>        
         <%- include("./partials/CadastrarPessoa.ejs")  %> 
+        <%- include("./partials/DeletarPessoa.ejs") %> 
     </main>
-      <%- include("./partials/footer.ejs") %>
-      <script src="js/GerenciarProfessores.js"></script>
+    <%- include("./partials/footer.ejs") %>
+    <script type="module" src="js/GerenciarProfessores.js"></script>
 </body>
 
 </html>
+

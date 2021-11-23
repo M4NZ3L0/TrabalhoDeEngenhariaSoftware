@@ -2,25 +2,53 @@
 <html lang="en">
 
 <head>
-    <%- include("./partials/head.ejs") %>
-    <link rel="stylesheet" href="css/manage.css">
-    <title>Gerenciar Instrumentos</title>
+  <%- include("./partials/head.ejs") %>
+  <title>Gerenciar Cursos</title>
 </head>
 
 <body>
-      <%- include("./partials/header.ejs") %>
-    <main class="min-h-screen">
-      <div>
-            <button id="Adicionar">Adicionar</button>
-            <button id="Modificar">Modificar</button>
-            <button id="Deletar">Deletarar</button>
-        </div>
-        
-      <%- ExibirInstrumento %> 
-        <%- include("./partials/Cadastrarinstrumento.ejs")  %> 
-    </main>
-      <%- include("./partials/footer.ejs") %>
-      <script src="js/GerenciarInstrumentos.js"></script>
+  <style>
+    tbody tr:nth-child(2n) {
+      background-color: #D1D5DB;
+    }
+  </style>
+  <%- include("./partials/header.ejs") %>
+
+  <main style="min-height: 68vh;">
+    <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">
+      <button id="Adicionar" class="flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+</svg>
+        <h1 class="font-semibold text-2xl text-gray-900">Criar Instrumento:</h1>
+      </button>
+    </div>
+
+    <div class="w-full h-full flex items-center justify-center">
+      <table class="w-11/12">
+        <thead class="bg-gray-900 border-collapse font-semibold text-white text-center h-12">
+          <tr>
+            <td class="font-bold" id="id">Id</td>
+            <td id="nome">Nome</td>
+            <td id="codigo">Código</td>
+            <td id="tipo">Tipo</td>
+            <td id="tamanhocms">TamanhoCms</td>
+            <td id="pesokgs">PesoKgs</td>
+            <td id="operações">Operações</td>
+          </tr>
+        </thead>
+        <tbody>
+          <%- ExibirInstrumento %>
+        </tbody>
+      </table>
+    </div>
+
+    <%- include("./partials/CadastrarInstrumento.ejs")  %>
+    <%- include("./partials/DeletarInstrumento.ejs") %>
+  </main>
+
+  <%- include("./partials/footer.ejs") %>
+  <script src="js/GerenciarInstrumentos.js"></script>
 </body>
 
 </html>
