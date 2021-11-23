@@ -1,56 +1,19 @@
-const Form = document.querySelector('#CadastrarPessoa');
+const form = document.querySelector("#CadastrarCurso")
 
-const Adicionar = document.querySelector("#Adicionar");
-const Modificar = document.querySelector("#Modificar");
-const Deletar = document.querySelector("#Deletar");
+const AdicionarCurso = document.querySelector("#Adicionar");
+const Fechar = document.querySelector("#Fechar");
 
-const Fechar = document.querySelector("#Close");
+Adicionar.addEventListener("click", () => {
+    if(form.classList.contains("hidden"))
+    {
+        form.classList.remove("hidden")
+    }
+},true);
 
 Fechar.addEventListener("click", () => {
-    if (!Form.classList.contains("hidden")) {
-        Form.classList.add("hidden");
+    if(!form.classList.contains("hidden"))
+    {
+        form.classList.add("hidden")
     }
-})
+}, true);
 
-let GerarAdicionar = function () {
-    if (Form.classList.contains("deletar") || Form.classList.contains("modificar")) {
-        Form.classList.remove("deletar");
-        Form.classList.remove("modificar");
-    }
-    Form.classList.add("criar");
-
-    if (Form.classList.contains("hidden")) {
-        Form.classList.remove("hidden");
-    }
-
-
-}
-
-let GerarModificar = function () {
-    if (Form.classList.contains("deletar") || Form.classList.contains("criar")) {
-        Form.classList.remove("deletar");
-        Form.classList.remove("criar");
-    }
-    Form.classList.add("modificar");
-
-    if (Form.classList.contains("hidden")) {
-        Form.classList.remove("hidden");
-    }
-
-}
-
-let GerarDeletar = function () {
-    if (Form.classList.contains("modificar") || Form.classList.contains("criar")) {
-        Form.classList.remove("modificar");
-        Form.classList.remove("criar");
-    }
-    Form.classList.add("deletar");
-    if (Form.classList.contains("hidden")) {
-        Form.classList.remove("hidden");
-    }
-
-}
-
-Adicionar.addEventListener("click", GerarAdicionar, true);
-Modificar.addEventListener("click", GerarModificar, true);
-Deletar.addEventListener("click", GerarDeletar, true);

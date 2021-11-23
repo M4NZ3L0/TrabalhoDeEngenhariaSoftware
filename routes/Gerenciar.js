@@ -12,15 +12,6 @@ router.route("/gerenciaralunos")
         })
     });
 
-/* router.route("/atualizarAluno/:id")
-    .get(async (req, res) => {
-        await RenderFunctions.FunçãoAlunos();
-        res.render("AtualizarAluno.ejs")
-    })
-    .post(async (req, res) =>
-    {
-    }) */
-
 router.route("/gerenciarinstrumentos")
     .get(async (req, res) => {
         await RenderFunctions.FunçãoInstrumentos();
@@ -30,6 +21,29 @@ router.route("/gerenciarinstrumentos")
     });
 
 router.route("/gerenciarcursos")
+    .get(async (req, res) => {
+        await RenderFunctions.FunçãoCursos();
+        res.render("GerenciarCursos.ejs", {
+            ExibirCurso: RenderFunctions.cursos
+        })
+    })
+    .post(async(req, res) => {
+        const obj = {
+            curso: req.body.curso,
+            professores: req.body.professores,
+            diasdeaula: req.body.diasdeaula,
+            horarios: req.body.horarios,
+            alunosmatriculados: req.body.alunosmatriculados,
+        };
+
+        const objson = JSON.stringify(obj);
+
+        axios.post("http://localhost:5050//api/cursos", objson)
+            .then(() => res.redirect(req.get('referer')))
+            .catch(err => console.log(err));
+    });
+
+router.route("/atualizarcursos")
     .get(async (req, res) => {
         await RenderFunctions.FunçãoCursos();
         res.render("GerenciarCursos.ejs", {
