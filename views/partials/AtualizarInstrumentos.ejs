@@ -1,4 +1,4 @@
-    <div id="CadastrarCurso" style="height: 72vh;"
+    <div id="AtualizarInstrumento" style="height: 72vh;"
         class="w-full flex justify-center items-center">
         <div class="flex items-start flex-col justify-start w-1/3 h-72 bg-gray-200 relative rounded-xl shadow-xl">
            <!--  <button id="Fechar" class="absolute top-6 right-6">
@@ -10,38 +10,26 @@
                 </svg>
             </button> -->
             <form class="flex items-start flex-col justify-center mt-8" method="post">
-
-                <div class="flex items-start flex-col ml-8 justify-center">
-                    <label for="curso">Curso</label>
-                    <input class="w-80 py-1" type="text" id="curso" name="curso">
-                </div>
-
-                <div class="flex items-start justify-center">
-                    <div class="flex items-start ml-8 flex-col justify-center">
-                        <label for="professores">Professores:</label>
-                        <input class="py-1" type="text" id="professores" name="professores">
+                    <div class="flex items-start mt-4 justify-center">
+                        <div class="flex flex-col items-start ml-8 justify-center">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="py-1" id="nome" name="nome">
+                            <label for="codigo">Código:</label>
+                            <input type="text" class="py-1" id="codigo" name="codigo">
+                            <label for="tipo">Tipo:</label>
+                            <input type="text" class="py-1" id="tipo" name="tipo">
+                        </div>
+                        <div class="flex flex-col items-start ml-8 justify-center">
+                            <label for="tamanhocms">Tamanho em Cms:</label>
+                            <input type="text" class="py-1" id="tamanhocms" name="tamanhocms">
+                            <label for="pesokgs">Peso em Kgs:</label>
+                            <input type="text" class="py-1" id="pesokgs" name="pesokgs">
+                        </div>
                     </div>
-
-                    <div class="flex items-start ml-8 flex-col justify-center">
-                        <label for="horarios">Horarios:</label>
-                        <input class="py-1" type="text" id="horarios" name="horarios">
+                    <div class="flex items-end ml-8 justify-center absolute bottom-8 right-8">
+                        <input class="text-white bg-yellow-700 px-4 py-1" type="reset">
+                        <input class="text-white ml-4 bg-blue-900 px-8 py-2" type="submit" value="Submit">
                     </div>
-                </div>
-
-                <div class="flex items-start justify-center">
-                    <div class="flex items-start ml-8 flex-col justify-center">
-                        <label for="diasdeaula">Dias de Aula:</label>
-                        <input class="py-1" type="text" id="diasdeaula" name="diasdeaula">
-                    </div>
-                    <div class="flex items-start ml-8 flex-col justify-center">
-                        <label for="alunosmatriculados">AlunosMatriculados:</label>
-                        <input class="py-1" type="text" id="alunosmatriculados" name="alunosmatriculados">
-                    </div>
-                </div>
-                <div class="flex items-end ml-8 justify-center absolute bottom-8 right-8">
-                    <input class="text-white bg-yellow-700 px-4 py-1" type="reset">
-                    <input class="text-white ml-4 bg-blue-900 px-8 py-2" type="submit" value="Submit">
-                </div>
             </form>
         </div>
     </div>

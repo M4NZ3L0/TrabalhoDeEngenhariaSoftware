@@ -7,10 +7,6 @@ const Instrument = sequelize.define("instruments", {
         autoIncrement: true,
         primaryKey: true
     },
-    Imagem: {        
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     Nome: {
         type: Sequelize.STRING(40),
         allowNull: false

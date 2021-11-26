@@ -2,7 +2,7 @@ const form = document.querySelector("#CadastrarCurso");
 
 const AdicionarCurso = document.querySelector("#Adicionar");
 const Fechar = document.querySelector("#Fechar");
-const Deletar = document.querySelector("#DeletarCurso");
+const Deletar = document.querySelector("#DeletarInstrumento");
 const DeletarForm = document.querySelector("#DeletarForm");
 const sair = document.querySelector("#sair")
 
@@ -30,7 +30,7 @@ DeleteBtn.forEach(btn => {
     const id = btn.dataset.id;
     btn.addEventListener("click", (e) => {
 
-        DeletarForm.action = "/deletarcursos/" + id;
+        DeletarForm.action = "/deletarinstumentos/" + id;
 
         if (Deletar.classList.contains("hidden")) {
             Deletar.classList.remove("hidden");

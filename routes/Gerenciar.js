@@ -1,5 +1,6 @@
 import express from "express";
-import { CriarCurso,AtualizarCurso,DeletarCurso } from "../models/logic/GerenciarFunções.js";
+import { CriarCurso,AtualizarCurso,DeletarCurso,
+ DeletarInstrumentos,CriarInstrumentos,AtualizarInstrumentos } from "../models/logic/GerenciarFunções.js";
 import RenderFunctions from "../models/logic/Gerenciar.js";
 
 const router = express.Router();
@@ -12,15 +13,29 @@ router.route("/gerenciaralunos")
         })
     });
 
+//Instrumentos
+
 router.route("/gerenciarinstrumentos")
     .get(async (req, res) => {
         await RenderFunctions.FunçãoInstrumentos();
         res.render("GerenciarInstrumentos.ejs", {
             ExibirInstrumento: RenderFunctions.instrumentos
         })
-    });
+    })
+    .post(CriarInstrumentos);
 
+router.route("/atualizarInstrumento/:id")
+    .get(async (req, res) => {
+        res.render("AtualizarInstrumentos.ejs");
+    })
+    .post(AtualizarInstrumentos);
 
+router.route("/deletarinstumentos/:id")
+.get(async (req, res) => {
+        res.send("Deletar");
+    })
+    .post(DeletarInstrumentos);
+    
 //Cursos
 
 router.route("/gerenciarcursos")

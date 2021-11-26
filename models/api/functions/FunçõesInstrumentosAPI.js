@@ -21,7 +21,6 @@ export async function CreateInstrument(req, res) {
 
         const Instrument = {
             Nome: req.body.nome,
-            Imagem: req.body.imagem,
             Código: req.body.codigo,
             Tipo: req.body.tipo,
             TamanhoCms: req.body.tamanhocms,
@@ -81,8 +80,16 @@ export const del = (req, res) => {
 
 export const update = (req, res) => {
   const id = req.params.id;
+  const obj = {
+        id:id,
+        Nome: req.body.nome,
+        Código: req.body.codigo,
+        Tipo: req.body.tipo,
+        TamanhoCms: req.body.tamanhocms,
+    PesoKgs: req.body.pesokgs    
+    };
 
-  instrumentModel.update(req.body, {
+  instrumentModel.update(obj, {
       where: {
         id: id
       }
@@ -94,7 +101,7 @@ export const update = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot update UserModel with id=${id}. Maybe UserModel was not found or req.body is empty!`
+          message: `Cannot update with id=${id}. Maybe UserModel was not found or req.body is empty!`
         });
       }
     })
