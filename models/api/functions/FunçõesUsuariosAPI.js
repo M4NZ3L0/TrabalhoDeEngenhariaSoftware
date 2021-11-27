@@ -37,7 +37,7 @@ export const create = async (req, res) => {
       message: "Rg já existe"
     })
   } else {
-    
+
     const hashPassword = bcrypt.hashSync(req.body.senha, 10);
 
     const user = {
@@ -62,7 +62,7 @@ export const create = async (req, res) => {
       })
       .catch(err => {
         res.status(500).send({
-          message: err.message 
+          message: err.message
         });
       });
   }
@@ -77,7 +77,7 @@ export const findAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message 
+        message: err.message
       });
     });
 };
@@ -107,8 +107,26 @@ export const findOne = (req, res) => {
 // Update a UserModel by the id in the request
 export const update = (req, res) => {
   const id = req.params.id;
+  const hashPassword = bcrypt.hashSync(req.body.senha, 10);
 
-  UserModel.update(req.body, {
+  const user = {
+    id: id,
+    Nome: req.body.nome,
+    Senha: hashPassword,
+    Email: req.body.email,
+    DataDeNascimento: req.body.datadenascimento,
+    Endereço: req.body.endereço,
+    Telefone: req.body.telefone,
+    RG: req.body.rg,
+    CPF: req.body.cpf,
+    Professor: req.body.professor,
+    Admin: req.body.admin,
+    VencimentoDoPagamento: req.body.vencimentopagamento,
+    Turma: req.body.turma,
+    Curso: req.body.curso
+  };
+
+  UserModel.update(user, {
       where: {
         id: id
       }
@@ -171,18 +189,18 @@ export const deleteAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message 
+        message: err.message
       });
     });
 };
 
 export const findAllStudents = (req, res) => {
   UserModel.findAll({
-  where: {
-    Professor: false,
-    Admin: false
-  }
-})
+      where: {
+        Professor: false,
+        Admin: false
+      }
+    })
     .then(data => {
       console.log(data);
       res.send(data);
@@ -190,19 +208,24 @@ export const findAllStudents = (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).send({
-        message: err.message 
+        message: err.message
       });
     });
 };
 
 export const findAllTeachers = (req, res) => {
-  UserModel.findAll({where: {Professor: true, Admin: false}})
+  UserModel.findAll({
+      where: {
+        Professor: true,
+        Admin: false
+      }
+    })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message 
+        message: err.message
       });
     });
 };

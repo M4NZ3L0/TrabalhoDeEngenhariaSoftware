@@ -30,7 +30,7 @@ DeleteBtn.forEach(btn => {
     const id = btn.dataset.id;
     btn.addEventListener("click", (e) => {
 
-        DeletarForm.action = "/deletarinstumentos/" + id;
+        DeletarForm.action = "/deletarAluno/" + id;
 
         if (Deletar.classList.contains("hidden")) {
             Deletar.classList.remove("hidden");

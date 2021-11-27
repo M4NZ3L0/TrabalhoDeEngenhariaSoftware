@@ -1,56 +1,40 @@
-const Form = document.querySelector('#CadastrarPessoa');
+const form = document.querySelector("#CadastrarProfessores");
 
-const Adicionar = document.querySelector("#Adicionar");
-const Modificar = document.querySelector("#Modificar");
-const Deletar = document.querySelector("#Deletar");
+const AdicionarCurso = document.querySelector("#Adicionar");
+const Fechar = document.querySelector("#Fechar");
+const Deletar = document.querySelector("#DeletarProfessores");
+const DeletarForm = document.querySelector("#DeletarForm");
+const sair = document.querySelector("#sair")
 
-const Fechar = document.querySelector("#Close");
+sair.addEventListener("click", () => {
+        if (!Deletar.classList.contains("hidden")) {
+            Deletar.classList.add("hidden");
+        }
+});
 
-Fechar.addEventListener("click", () => {
-    if (!Form.classList.contains("hidden")) {
-        Form.classList.add("hidden");
-    }
-})
+const DeleteBtn = document.querySelectorAll(".delete");    
 
-let GerarAdicionar = function () {
-    if (Form.classList.contains("deletar") || Form.classList.contains("modificar")) {
-        Form.classList.remove("deletar");
-        Form.classList.remove("modificar");
-    }
-    Form.classList.add("criar");
+            Adicionar.addEventListener("click", () => {
+                if (form.classList.contains("hidden")) {
+                    form.classList.remove("hidden")
+                }
+            }, true);
 
-    if (Form.classList.contains("hidden")) {
-        Form.classList.remove("hidden");
-    }
+            Fechar.addEventListener("click", () => {
+                if (!form.classList.contains("hidden")) {
+                    form.classList.add("hidden")
+                }
+            }, true);
 
+DeleteBtn.forEach(btn => {
+    const id = btn.dataset.id;
+    btn.addEventListener("click", (e) => {
 
-}
+        DeletarForm.action = "/deletarAluno/" + id;
 
-let GerarModificar = function () {
-    if (Form.classList.contains("deletar") || Form.classList.contains("criar")) {
-        Form.classList.remove("deletar");
-        Form.classList.remove("criar");
-    }
-    Form.classList.add("modificar");
+        if (Deletar.classList.contains("hidden")) {
+            Deletar.classList.remove("hidden");
+        }
 
-    if (Form.classList.contains("hidden")) {
-        Form.classList.remove("hidden");
-    }
-
-}
-
-let GerarDeletar = function () {
-    if (Form.classList.contains("modificar") || Form.classList.contains("criar")) {
-        Form.classList.remove("modificar");
-        Form.classList.remove("criar");
-    }
-    Form.classList.add("deletar");
-    if (Form.classList.contains("hidden")) {
-        Form.classList.remove("hidden");
-    }
-
-}
-
-Adicionar.addEventListener("click", GerarAdicionar, true);
-Modificar.addEventListener("click", GerarModificar, true);
-Deletar.addEventListener("click", GerarDeletar, true);
+    })
+});
