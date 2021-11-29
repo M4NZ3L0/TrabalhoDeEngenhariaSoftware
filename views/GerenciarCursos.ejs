@@ -12,8 +12,11 @@
             background-color: #D1D5DB;
         }
     </style>
-    <%- include("./partials/header.ejs") %>
-
+    <% if (header) { %>
+    <%- include(header) %>
+    <%} else { %>
+    <%- include("./partials/Header.ejs") %>
+    <% } %>
     <main style="min-height: 68vh;">
         <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">
             <button id="Adicionar" class="flex items-center justify-center">

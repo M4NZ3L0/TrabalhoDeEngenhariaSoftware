@@ -12,14 +12,20 @@
       background-color: #D1D5DB;
     }
   </style>
-  <%- include("./partials/header.ejs") %>
+  <% if (header) { %>
+    <%- include(header) %>
+    <%} else { %>
+    <%- include("./partials/Header.ejs") %>
+    <% } %>
 
   <main style="min-height: 68vh;">
     <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">
       <button id="Adicionar" class="flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
-  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
-</svg>
+          <path fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+            clip-rule="evenodd" />
+        </svg>
         <h1 class="font-semibold text-2xl text-gray-900">Criar Instrumento:</h1>
       </button>
     </div>

@@ -7,21 +7,26 @@
 </head>
 
 <body>
-    <%- include("./partials/header.ejs") %>
+    <% if (header) { %>
+    <%- include(header) %>
+    <%} else { %>
+    <%- include("./partials/Header.ejs") %>
+    <% } %>
 
     <main class="min-h-screen">
-       <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">            
+        <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">
             <button id="Adicionar" class="flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-gray-900" viewBox="0 0 20 20"
+                    fill="currentColor">
                     <path
                         d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
                 </svg>
-            <h1 class="font-semibold text-2xl text-gray-900">Criar Novo Aluno:</h1>
+                <h1 class="font-semibold text-2xl text-gray-900">Criar Novo Aluno:</h1>
             </button>
         </div>
-        
-       <div class="w-full h-full flex items-center justify-center">
-           <table class="w-11/12">
+
+        <div class="w-full h-full flex items-center justify-center">
+            <table class="w-11/12">
                 <thead class="bg-gray-900 border-collapse text-white h-8">
                     <tr>
                         <th id="id">Id</th>
@@ -39,16 +44,15 @@
                     </tr>
                 </thead>
                 <tbody>
-            <%- ExibirAluno %> 
+                    <%- ExibirAluno %>
                 </tbody>
             </table>
-        </div>        
-        <%- include("./partials/CadastrarAluno.ejs")  %> 
-        <%- include("./partials/DeletarAluno.ejs") %> 
+        </div>
+        <%- include("./partials/CadastrarAluno.ejs")  %>
+        <%- include("./partials/DeletarAluno.ejs") %>
     </main>
     <%- include("./partials/footer.ejs") %>
     <script type="module" src="js/GerenciarAlunos.js"></script>
 </body>
 
 </html>
-

@@ -7,7 +7,11 @@
 </head>
 
 <body>
-    <%- include("./partials/header.ejs") %>
+    <% if (header) { %>
+    <%- include(header) %>
+    <%} else { %>
+    <%- include("./partials/Header.ejs") %>
+    <% } %>
 
     <main class="min-h-screen">
        <div class="flex items-center justify-start z-100  ml-20 mt-6 mb-4">            
