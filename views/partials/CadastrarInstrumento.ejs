@@ -14,17 +14,17 @@
                     <div class="flex items-start mt-4 justify-center">
                         <div class="flex flex-col items-start ml-8 justify-center">
                             <label for="nome">Nome:</label>
-                            <input type="text" class="py-1" id="nome" name="nome">
+                            <input type="text" class="py-1" required maxlength="40" minlength="3" id="nome" name="nome">
                             <label for="codigo">Código:</label>
-                            <input type="text" class="py-1" id="codigo" name="codigo">
+                            <input type="text" class="py-1" id="codigo" required maxlength="16" minlength="16" name="codigo">
                             <label for="tipo">Tipo:</label>
-                            <input type="text" class="py-1" id="tipo" name="tipo">
+                            <input type="text" class="py-1" id="tipo" required maxlength="15" minlength="5" name="tipo">
                         </div>
                         <div class="flex flex-col items-start ml-8 justify-center">
                             <label for="tamanhocms">Tamanho em Cms:</label>
-                            <input type="text" class="py-1" id="tamanhocms" name="tamanhocms">
+                            <input type="text" class="py-1" id="tamanhocms" required maxlength="3" minlength="1" name="tamanhocms">
                             <label for="pesokgs">Peso em Kgs:</label>
-                            <input type="text" class="py-1" id="pesokgs" name="pesokgs">
+                            <input type="text" class="py-1" id="pesokgs" required maxlength="4" minlength="4" name="pesokgs">
                         </div>
                     </div>
                     <div class="flex items-end ml-8 justify-center absolute bottom-8 right-8">

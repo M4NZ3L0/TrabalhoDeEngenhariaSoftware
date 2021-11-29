@@ -17,9 +17,9 @@ let GetAlunos = async () => {
                         <td class="text-center text-gray-800" id="email">${e.Email}</td>
                         <td class="text-center text-gray-800" id="datadenascimento">${e.DataDeNascimento.slice(0,10)}</td>
                         <td class="text-center text-gray-800" font-bold" id="endereço">${e.Endereço}</td>
-                        <td class="text-center text-gray-800" font-bold" id="telefone">${e.Telefone}</td>
+                        <td class="text-center text-gray-800" font-bold" id="telefone">${ "(" + e.Telefone.slice(0,2) + ") " + e.Telefone.slice(2,7) + "." + e.Telefone.slice(7,11)}</td>
                         <td class="text-center text-gray-800" font-bold" id="cpf">${e.CPF.slice(0,3) + "." + e.CPF.slice(3,6) + "." + e.CPF.slice(6,9) + "-" + e.CPF.slice(9,11) }</td>
-                        <td class="text-center text-gray-800" font-bold" id="rg">${e.RG.slice(0,2) + "." + e.RG.slice(2,5) + "." + e.RG.slice(5,3) + "-" + e.CPF.slice(9) }</td>
+                        <td class="text-center text-gray-800" font-bold" id="rg">${e.RG.slice(0,2) + "." + e.RG.slice(2,5) + "." + e.RG.slice(5,8) + "-" + e.RG.slice(8,9)}</td>
                         <td class="text-center text-gray-800" font-bold" id="vencimentopagamento">${e.VencimentoDoPagamento.slice(0,10)}</td>
                         <td class="text-center text-gray-800" font-bold" id="curso">${e.Curso}</td>
                         <td class="text-center text-gray-800" font-bold" id="turma">${e.Turma}</td>
@@ -52,9 +52,9 @@ let GetProfessores = async () => {
                         <td class="text-center text-gray-800" id="email">${e.Email}</td>
                         <td class="text-center text-gray-800" id="datadenascimento">${e.DataDeNascimento.slice(0,10)}</td>
                         <td class="text-center text-gray-800" font-bold" id="endereço">${e.Endereço}</td>
-                        <td class="text-center text-gray-800" font-bold" id="telefone">${e.Telefone}</td>
+                        <td class="text-center text-gray-800" font-bold" id="telefone">${ "(" + e.Telefone.slice(0,2) + ") " + e.Telefone.slice(2,7) + "." + e.Telefone.slice(7,11)}</td>
                         <td class="text-center text-gray-800" font-bold" id="cpf">${e.CPF.slice(0,3) + "." + e.CPF.slice(3,6) + "." + e.CPF.slice(6,9) + "-" + e.CPF.slice(9,11) }</td>
-                        <td class="text-center text-gray-800" font-bold" id="rg">${e.RG.slice(0,2) + "." + e.RG.slice(2,5) + "." + e.RG.slice(5,3) + "-" + e.CPF.slice(9) }</td>
+                        <td class="text-center text-gray-800" font-bold" id="rg">${e.RG.slice(0,2) + "." + e.RG.slice(2,5) + "." + e.RG.slice(5,8) + "-" + e.RG.slice(8,9)}</td>
                         <td class="text-center text-gray-800" font-bold" id="vencimentopagamento">${e.VencimentoDoPagamento.slice(0,10)}</td>
                         <td class="text-center text-gray-800" font-bold" id="curso">${e.Curso}</td>
                         <td class="text-center text-gray-800" font-bold" id="turma">${e.Turma}</td>
@@ -86,7 +86,7 @@ let GetCursos = async () => {
                         <td class="text-center text-gray-800" id="curso">${e.Curso}</td>
                         <td class="text-center text-gray-800" id="professores">${e.Professores}</td>
                         <td class="text-center text-gray-800" id="diasdeaula">${e.DiasDeAula}</td>
-                        <td class="text-center text-gray-800" id="horários">${e.Horários.slice(0,2) + ":" + e.Horários.slice(2,4)}</td>
+                        <td class="text-center text-gray-800" id="horários">${e.Horários}</td>
                         <td class="text-center text-gray-800" id="alunosmatriculados">${e.AlunosMatriculados}</td>
                         <td>
                         <div class="flex justify-center items-center">

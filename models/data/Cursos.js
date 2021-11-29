@@ -20,7 +20,7 @@ const Course = sequelize.define("courses", {
         allowNull: false
     },
     Horários: {
-        type: Sequelize.STRING(4),
+        type: Sequelize.STRING(8),
         allowNull: false
     },
     AlunosMatriculados: {

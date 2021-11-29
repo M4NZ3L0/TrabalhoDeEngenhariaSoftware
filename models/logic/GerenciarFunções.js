@@ -47,14 +47,22 @@ export const DeletarCurso = async (req, res) => {
 
 export const CriarProfessor = async (req, res) => {
     const obj = {
-        curso: req.body.curso,
-        professores: req.body.professores,
-        diasdeaula: req.body.diasdeaula,
-        horarios: req.body.horarios,
-        alunosmatriculados: req.body.alunosmatriculados
+      nome: req.body.nome,
+      senha: req.body.senha,
+      email: req.body.email,
+      datadenascimento: req.body.datadenascimento,
+      endereço: req.body.endereço,
+      telefone: req.body.telefone,
+      rg: req.body.rg,
+      cpf: req.body.cpf,
+      professor: true,
+      admin: false,
+      vencimentopagamento: req.body.vencimentopagamento,
+      turma: req.body.turma,
+      curso: req.body.curso
     };
 
-    axios.post("http://localhost:5050/api/cursos", obj)
+    axios.post("http://localhost:5050/api/professores", obj)
         .then(() => res.redirect(req.originalUrl))
         .catch(err => console.log(err));
 }
@@ -62,18 +70,27 @@ export const CriarProfessor = async (req, res) => {
 export const AtualizarProfessor = async (req, res) => {
 
     const obj = {
-        id: req.params.id,
-        curso: req.body.curso,
-        professores: req.body.professores,
-        diasdeaula: req.body.diasdeaula,
-        horarios: req.body.horarios,
-        alunosmatriculados: req.body.alunosmatriculados
+      id:req.params.id,
+      nome: req.body.nome,
+      senha: req.body.senha,
+      email: req.body.email,
+      datadenascimento: req.body.datadenascimento,
+      endereço: req.body.endereço,
+      telefone: req.body.telefone,
+      rg: req.body.rg,
+      cpf: req.body.cpf,
+      professor: true,
+      admin:false,
+      vencimentopagamento: req.body.vencimentopagamento,
+      turma: req.body.turma,
+      curso: req.body.curso
     };
 
-    const updateurl = `http://localhost:5050/api/cursos/${req.params.id}`
+
+    const updateurl = `http://localhost:5050/api/professores/${req.params.id}`
 
     axios.put(updateurl, obj)
-        .then(() => res.redirect(`http://localhost:5050/gerenciarcursos`))
+        .then(() => res.redirect(`http://localhost:5050/gerenciarprofessores`))
         .catch(err => console.log(err));
 }
 
@@ -82,10 +99,10 @@ export const DeletarProfessor = async (req, res) => {
 
     const id = req.params.id;
     console.log(id);
-    const deleteurl = `http://localhost:5050/api/cursos/${id}`;
+    const deleteurl = `http://localhost:5050/api/professores/${id}`;
 
     axios.delete(deleteurl)
-        .then(() => res.redirect(`http://localhost:5050/gerenciarcursos`))
+        .then(() => res.redirect(`http://localhost:5050/gerenciarprofessores`))
         .catch(err => console.log(err));
 }
 

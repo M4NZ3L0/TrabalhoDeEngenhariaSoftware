@@ -13,34 +13,34 @@
                 <div class="flex items-start text-gray-900 flex-col justify-center">
                     <div class="flex items-start flex-col justify-center">
                         <label for="nome">Nome:</label>
-                        <input type="text" class="py-1 w-72" id="nome" name="nome">
+                        <input type="text" class="py-1 w-72" required maxlength="30" minlength="3" id="nome" name="nome">
                     </div>
 
                     <div class="flex items-start mt-2 flex-col justify-center">
                         <label for="senha">Senha:</label>
-                        <input type="password" class="py-1 w-72" id="senha" name="senha">
+                        <input type="password" class="py-1 w-72" required maxlength="20" minlength="10" id="senha" name="senha">
                     </div>
 
                     <div class="flex items-start mt-2 flex-col justify-center">
                         <label for="email">Email:</label>
-                        <input type="text" class="py-1 w-72" id="email" name="email">
+                        <input type="email" class="py-1 w-72" id="email" required maxlength="30" minlength="10" name="email">
                     </div>
                 </div>
 
                 <div class="flex items-start flex-col justify-center">
                     <div class="flex items-start text-gray-900 ml-4 flex-col justify-center">
                         <label for="datadenascimento">Data De Nascimento(YYYY-MM-DD):</label>
-                        <input type="text" class="py-1 w-72" id="datadenascimento" name="datadenascimento">
+                        <input type="date" class="py-1 w-72" required id="datadenascimento" name="datadenascimento">
                     </div>
 
                     <div class="flex items-start text-gray-900 ml-4 mt-2 flex-col justify-center">
-                        <label for="endereço">Endereço:</label>
-                        <input type="text" class="py-1 w-72" id="endereço" name="endereço">
+                        <label for="endereço">Endereço:</label> 
+                        <input type="text" class="py-1 w-72" id="endereço" required maxlength="40" minlength="5" name="endereço">
                     </div>
 
                     <div class="flex items-start text-gray-900 ml-4 mt-2 flex-col justify-center">
                         <label for="telefone">Telefone:</label>
-                        <input type="tel" id="telefone" class="py-1 w-72" name="telefone">
+                        <input type="tel" id="telefone" class="py-1 w-72" required maxlength="11" minlength="11" name="telefone">
                     </div>
                 </div>
 
@@ -48,26 +48,26 @@
                     <div class="flex items-start text-gray-900 flex-col justify-center">
                     <div class="flex items-start mt-2 flex-col justify-center">
                         <label for="rg">RG:</label>
-                        <input type="text" class="py-1 w-72" id="rg" name="rg">
+                        <input type="text" class="py-1 w-72" required maxlength="9" minlength="9" id="rg" name="rg">
                     </div>
                     <div class="flex items-start mt-2 flex-col justify-center">
                         <label for="cpf">CPF:</label>
-                        <input type="text" class="py-1 w-72" id="cpf" name="cpf">
+                        <input type="text" class="py-1 w-72" id="cpf" required maxlength="11" minlength="11" name="cpf">
                     </div>
                     <div class="flex items-start mt-2 flex-col justify-center">
                         <label for="vencimentopagamento">Vencimento do Pagamento(YYYY-MM-DD):</label>
-                        <input type="text" class="py-1 w-72" id="vencimentopagamento" name="vencimentopagamento">
+                        <input type="date" class="py-1 w-72" id="vencimentopagamento" required name="vencimentopagamento">
                     </div>
                     </div>
 
                     <div class="flex items-start text-gray-900 flex-col justify-center">
                         <div class="flex items-start text-gray-900 mt-2 flex-col justify-center">
                             <label for="turma">Turma:</label>
-                            <input type="text" class="py-1 w-72" id="turma" name="turma">
+                            <input type="text" class="py-1 w-72" required maxlength="1" minlength="1" id="turma" name="turma">
                         </div>
                         <div class="flex items-start text-gray-900 mt-2 flex-col justify-center">
                             <label for="curso">Curso:</label>
-                            <input type="text" class="py-1 w-72" id="curso" name="curso">
+                            <input type="text" class="py-1 w-72" required maxlength="30" minlength="5" id="curso" name="curso">
                         </div>
                     </div>
                 </div>

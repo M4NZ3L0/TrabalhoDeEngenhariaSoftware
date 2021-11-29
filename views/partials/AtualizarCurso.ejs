@@ -13,29 +13,29 @@
 
                 <div class="flex items-start flex-col ml-8 justify-center">
                     <label for="curso">Curso</label>
-                    <input class="w-80 py-1" type="text" id="curso" name="curso">
+                    <input class="w-80 py-1" type="text" required maxlength="30" minlength="5" id="curso" name="curso">
                 </div>
 
                 <div class="flex items-start justify-center">
                     <div class="flex items-start ml-8 flex-col justify-center">
                         <label for="professores">Professores:</label>
-                        <input class="py-1" type="text" id="professores" name="professores">
+                        <input class="py-1" type="text" id="professores" required maxlength="30" minlength="3"name="professores">
                     </div>
 
                     <div class="flex items-start ml-8 flex-col justify-center">
                         <label for="horarios">Horarios:</label>
-                        <input class="py-1" type="text" id="horarios" name="horarios">
+                        <input class="py-1" type="time" id="horarios" required name="horarios">
                     </div>
                 </div>
 
                 <div class="flex items-start justify-center">
                     <div class="flex items-start ml-8 flex-col justify-center">
                         <label for="diasdeaula">Dias de Aula:</label>
-                        <input class="py-1" type="text" id="diasdeaula" name="diasdeaula">
+                        <input class="py-1" type="text" id="diasdeaula" required maxlength="15"  name="diasdeaula">
                     </div>
                     <div class="flex items-start ml-8 flex-col justify-center">
                         <label for="alunosmatriculados">AlunosMatriculados:</label>
-                        <input class="py-1" type="text" id="alunosmatriculados" name="alunosmatriculados">
+                        <input class="py-1" type="text" id="alunosmatriculados" required maxlength="3" name="alunosmatriculados">
                     </div>
                 </div>
                 <div class="flex items-end ml-8 justify-center absolute bottom-8 right-8">

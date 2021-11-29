@@ -60,7 +60,7 @@ const User = sequelize.define("users", {
         default: null
     },
     Curso: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(40),
         allowNull: true,
         default: null
     }

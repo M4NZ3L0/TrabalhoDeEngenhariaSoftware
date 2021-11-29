@@ -24,7 +24,7 @@ const Instrument = sequelize.define("instruments", {
         allowNull: false
     },
     PesoKgs: {
-        type: Sequelize.STRING(3),
+        type: Sequelize.FLOAT,
         allowNull: true
     }
 });
