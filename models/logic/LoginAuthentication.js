@@ -17,7 +17,7 @@ let loginfunc = async (req, res) => {
     });
 
     if (!UsersExists) {
-        res.status(409).send("User don't exists");
+        return res.status(409).send("User don't exists");
     }
     
     else {

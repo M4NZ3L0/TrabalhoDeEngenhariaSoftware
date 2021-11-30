@@ -18,26 +18,29 @@ router.get("/log",CheckLogged, async (req, res) => {
 })
 
 router.route("/instrumentos")
-    .get(async (req, res) => {
+    .get(CheckLogged,async (req, res) => {
+    const { header,username } = res.locals;
         await InstrumentData[1]();
         res.render("Instrumentos.ejs", {
-            ExibirInstrumentos: InstrumentData[0]
+            ExibirInstrumentos: InstrumentData[0],header, username
         })
     });
 
 router.route("/professores")
-    .get(async (req, res) => {
+    .get(CheckLogged,async (req, res) => {
+    const { header,username } = res.locals;
         await TeachersData[1]()
         res.render("Professores.ejs", {
-            ExibirProfessores: TeachersData[0]
+            ExibirProfessores: TeachersData[0],header, username
         })
     });
 
 router.route("/cursos")
-    .get(async (req, res) => {
+    .get(CheckLogged,async (req, res) => {
+    const { header,username } = res.locals;
         await CourseData[1]();
         res.render("Cursos.ejs", {
-            ExibirCursos: CourseData[0]
+            ExibirCursos: CourseData[0],header, username
         })
     });
 

@@ -13,92 +13,115 @@ import RenderFunctions from "../models/logic/Gerenciar.js";
 const router = express.Router();
 
 router.route("/gerenciaralunos")
-    .get(CheckLogged,async (req, res) => {
+    .get(CheckLogged,CheckProf,async (req, res) => {
+    const { header,username } = res.locals;
         await RenderFunctions.FunçãoAlunos();
         res.render("GerenciarAlunos.ejs", {
-            header: "./partials/header.ejs",
-            ExibirAluno: RenderFunctions.alunos
+            ExibirAluno: RenderFunctions.alunos,
+            header,
+            username
         })
     })
-    .post(CriarAluno);
+    .post(CheckProf,CriarAluno);
 
 router.route("/atualizarAluno/:id")
-    .get(async (req, res) => {
-        res.render("AtualizarAluno.ejs");
+    .get(CheckLogged,CheckProf,async (req, res) => {
+    const { header,username } = res.locals;
+        res.render("AtualizarAluno.ejs",{
+            header,
+            username});
     })
-    .post(AtualizarAluno);
+    .post(CheckProf,AtualizarAluno);
 
 router.route("/deletarAluno/:id")
-.get(async (req, res) => {
+.get(CheckLogged,CheckProf,async (req, res) => {
         res.send("Deletar");
     })
-    .post(DeletarAluno);
+    .post(CheckLogged,CheckProf,DeletarAluno);
     
 //Instrumentos
 
 router.route("/gerenciarinstrumentos")
-    .get(async (req, res) => {
+    .get(CheckLogged,CheckProf,async (req, res) => {
+    const { header,username } = res.locals;
         await RenderFunctions.FunçãoInstrumentos();
         res.render("GerenciarInstrumentos.ejs", {
-            ExibirInstrumento: RenderFunctions.instrumentos
+            ExibirInstrumento: RenderFunctions.instrumentos,
+            header,
+            username
         })
     })
-    .post(CriarInstrumentos);
+    .post(CheckProf,CriarInstrumentos);
 
 router.route("/atualizarInstrumento/:id")
-    .get(async (req, res) => {
-        res.render("AtualizarInstrumentos.ejs");
+    .get(CheckLogged,CheckProf,async (req, res) => {
+    const { header,username } = res.locals;
+        res.render("AtualizarInstrumentos.ejs",{
+            header,
+            username});
     })
-    .post(AtualizarInstrumentos);
+    .post(CheckProf,AtualizarInstrumentos);
 
 router.route("/deletarinstumentos/:id")
-.get(async (req, res) => {
+.get(CheckLogged,CheckProf,async (req, res) => {
         res.send("Deletar");
     })
-    .post(DeletarInstrumentos);
+    .post(CheckLogged,CheckProf,DeletarInstrumentos);
     
 //Cursos
 
 router.route("/gerenciarcursos")
-    .get(async (req, res) => {
+    .get(CheckLogged,CheckProf,async (req, res) => {
+    const { header,username } = res.locals;
         await RenderFunctions.FunçãoCursos();
         res.render("GerenciarCursos.ejs", {
-            ExibirCurso: RenderFunctions.cursos
+            ExibirCurso: RenderFunctions.cursos,
+            header,
+            username
         })
     })
-    .post(CriarCurso);
+    .post(CheckProf,CriarCurso);
 
 router.route("/atualizarCurso/:id")
-    .get(async (req, res) => {
-        res.render("AtualizarCurso.ejs");
+    .get(CheckLogged,CheckProf,async (req, res) => {
+    const { header,username } = res.locals;
+        res.render("AtualizarCurso.ejs",
+           { header,
+            username});
     })
-    .post(AtualizarCurso);
+    .post(CheckProf,AtualizarCurso);
 
 router.route("/deletarcursos/:id")
-    .post(DeletarCurso);
+    .post(CheckLogged,CheckProf,DeletarCurso);
     
 //Profs
 
 router.route("/gerenciarprofessores")
-    .get(async (req, res) => {
+    .get(CheckLogged,CheckAdmin,async (req, res) => {
+    const { header,username } = res.locals;
         await RenderFunctions.FunçãoProfessores();
         res.render("GerenciarProfessores.ejs", {
-            ExibirProfessor: RenderFunctions.professores
+            ExibirProfessor: RenderFunctions.professores,
+            header,
+            username
         })
     })
-    .post(CriarProfessor);
+    .post(CheckAdmin,CriarProfessor);
 
 router.route("/atualizarProfessor/:id")
-    .get(async (req, res) => {
-        res.render("AtualizarProfessor.ejs");
+    .get(CheckLogged,CheckAdmin,async (req, res) => {
+    const { header,username } = res.locals;
+        res.render("AtualizarProfessor.ejs",
+            {header,
+            username});
     })
-    .post(AtualizarProfessor);
+    .post(CheckAdmin,AtualizarProfessor);
 
 router.route("/deletarProfessor/:id")
-.get(async (req, res) => {
+.get(CheckLogged,CheckAdmin, async (req, res) => {
         res.send("Deletar");
     })
-    .post(DeletarProfessor);
+    .post(CheckAdmin,DeletarProfessor);
     
 
 export default router;

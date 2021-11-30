@@ -31,9 +31,12 @@ export const CheckLogged = (req, res, next) => {
 
 export const CheckProf = (req, res, next) => {
 
-    if ((req.session.prof && !req.session.admin)) {
+    if ((req.session.prof && !req.session.adm) || (req.session.prof && req.session.adm)) {
 
         next();
+    } else if (req.session.adm) {
+
+        next()
     } else {
 
         res.status(403).send("you aren't a teacher");
@@ -42,7 +45,7 @@ export const CheckProf = (req, res, next) => {
 
 export const CheckAdmin = (req, res, next) => {
 
-    if (req.session.admin) {
+    if (req.session.adm) {
         console.log("you're logged as admin");
         next();
     } else {
