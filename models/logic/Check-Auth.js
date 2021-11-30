@@ -1,45 +1,52 @@
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-import "cookie-parser";
-dotenv.config();
+export const CheckLogged = (req, res, next) => {
 
-export const CheckIsAuth = (req, res, next) => {
-    
-    const accessToken = req.cookie["access-token"];
+    if (!req.session.name) {
 
-    if (!accessToken)
-    {
-        return res.status(401).send("we don't hve a token");
+        res.status(403).send("You need to login first");
     }
 
-    try
-    {
-        const validtoken = jwt.verify(accessToken, process.env.SECRET);
+    if (!(req.session.adm && req.session.prof)) {
 
-        if (validtoken)
-        {
-            req.authenticated = true;
-            return next();
-        }
-        else
-        {
-        return res.status(401).send("we need a valid token");
-            
-            }
-
+        const header = "./partials/HeaderLogAluno.ejs";
+        res.locals.username = req.session.name;
+        res.locals.header = header;
     }
-    catch (e)
-    {
-        return res.status(400).json({ error: err });
+    if (req.session.prof) {
+
+        const header = './partials/HeaderLogProf.ejs';
+        res.locals.username = req.session.name;
+        res.locals.header = header;
     }
-}
+    if (req.session.adm) {
 
-export const CheckIsProf = (req, res, next) =>
-{
-    
-}
+        const header = './partials/HeaderLogADM.ejs';
+        res.locals.username = req.session.name;
+        res.locals.header = header;
+    }
 
-export const CheckIsAdm = (req, res, next) =>
-{
+    console.log("you're logged");
+    next();
 
-}
+};
+
+export const CheckProf = (req, res, next) => {
+
+    if ((req.session.prof && !req.session.admin)) {
+
+        next();
+    } else {
+
+        res.status(403).send("you aren't a teacher");
+    }
+};
+
+export const CheckAdmin = (req, res, next) => {
+
+    if (req.session.admin) {
+        console.log("you're logged as admin");
+        next();
+    } else {
+
+        res.status(403).send("you aren't an admin");
+    }
+};

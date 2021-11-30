@@ -2,10 +2,19 @@ import express from "express";
 import InstrumentData from "../models/logic/ExibirInstrumentos.js";
 import CourseData from "../models/logic/ExibirCursos.js";
 import TeachersData from "../models/logic/ExibirProfessores.js";
+import { CheckProf,CheckLogged,CheckAdmin } from "../models/logic/Check-Auth.js";
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+    
     res.render("Inicio.ejs");
+})
+
+router.get("/log",CheckLogged, async (req, res) => {
+    const { header,username } = res.locals;
+
+    res.render("InicioLogado.ejs", {header, username});
 })
 
 router.route("/instrumentos")

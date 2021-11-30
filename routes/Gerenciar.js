@@ -5,14 +5,15 @@ import { CriarCurso,AtualizarCurso,DeletarCurso,
     CriarAluno, AtualizarAluno, DeletarAluno,
     CriarProfessor, AtualizarProfessor, DeletarProfessor
 } from "../models/logic/GerenciarFunções.js";
-import {CheckIsAuth} from "../models/logic/Check-Auth.js"
+
+import { CheckProf,CheckLogged,CheckAdmin } from "../models/logic/Check-Auth.js";
 
 import RenderFunctions from "../models/logic/Gerenciar.js";
 
 const router = express.Router();
 
 router.route("/gerenciaralunos")
-    .get(CheckIsAuth,async (req, res) => {
+    .get(CheckLogged,async (req, res) => {
         await RenderFunctions.FunçãoAlunos();
         res.render("GerenciarAlunos.ejs", {
             header: "./partials/header.ejs",

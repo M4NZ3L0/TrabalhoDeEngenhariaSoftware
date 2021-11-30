@@ -1,6 +1,5 @@
 import Users from "../data/Usuarios.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -30,20 +29,11 @@ let loginfunc = async (req, res) => {
             res.send("Wrong senha")
 
         }
-        const token = jwt.sign(
-            {
-                user_id: UsersExists.id,
-                user_is_adm: UsersExists.Admin,
-                user_is_professor: UsersExists.Professor
-            },
-            process.env.SECRET,
-            {
-                expiresIn: "1h"
-            }
-        )
-
-        res.cookie("access-token", token, { expiresIn: 360000,httpOnly:true });
-        res.json({ token });
+        
+        req.session.name = UsersExists.Nome
+        req.session.adm = UsersExists.Admin;
+        req.session.prof = UsersExists.Professor;
+        res.redirect("http://localhost:5050/log");
 
     }
 
